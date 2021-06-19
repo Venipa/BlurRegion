@@ -9,7 +9,9 @@
         AllowsTransparency="True"
         Background="#01000000"
         Topmost="True"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="{Binding resizeMode, Mode=OneWay}"
+        PreviewKeyDown="Window_KeyDownUp"
+        PreviewKeyUp="Window_KeyDownUp"
         Title="Blur Region" Height="300" Width="300">
     <Window.ContextMenu>
         <ContextMenu>
@@ -20,7 +22,7 @@
             <MenuItem Header="venipa.net" IsEnabled="False" />
         </ContextMenu>
     </Window.ContextMenu>
-    <Border BorderBrush="#0fffffff" BorderThickness="1">
+    <Border BorderBrush="{Binding borderColor, Mode=OneWay}" BorderThickness="{Binding borderWidth, Mode=OneWay}">
         <Grid>
 
         </Grid>

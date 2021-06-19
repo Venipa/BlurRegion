@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace BlurRegion
+namespace BlurRegion.Core
 {
     internal enum AccentState
     {
@@ -36,7 +36,7 @@ namespace BlurRegion
     }
 
 
-    class WindowBlurEffect
+    public class WindowBlurEffect
     {
         [DllImport("user32.dll")]
         internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);

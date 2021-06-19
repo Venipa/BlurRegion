@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using BlurRegion.Core;
 
 namespace BlurRegion
 {
@@ -17,7 +18,11 @@ namespace BlurRegion
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = new WindowBlurEffect(this, AccentState.ACCENT_ENABLE_BLURBEHIND) { BlurOpacity = 100 };
+            DataContext = new MainWindowView()
+            {
+                acrylManager = new WindowBlurEffect(this, AccentState.ACCENT_ENABLE_BLURBEHIND),
+                borderColor = "#14ffffff"
+            };
         }
         protected override void OnMouseDown(MouseButtonEventArgs e)
         {
@@ -34,6 +39,16 @@ namespace BlurRegion
         private void OpenNewWindow(object sender, RoutedEventArgs e)
         {
             new MainWindow().Show();
+        }
+
+        private void Window_KeyDownUp(object sender, KeyEventArgs e)
+        {
+            var dataContext = (this.DataContext as MainWindowView);
+            var isHightlight = Keyboard.IsKeyDown(Key.LeftShift) && Keyboard.IsKeyDown(Key.LeftCtrl);
+            dataContext.borderColor = isHightlight ? "#00ff00" : "#14ffffff";
+            dataContext.borderWidth = isHightlight ? 4 : 1;
+            dataContext.resizeMode = Keyboard.IsKeyDown(Key.LeftShift) ? ResizeMode.NoResize : ResizeMode.CanResizeWithGrip;
+
         }
     }
 }
