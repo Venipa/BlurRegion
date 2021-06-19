@@ -1,0 +1,28 @@
+﻿<Window x:Class="BlurRegion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlurRegion"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#01000000"
+        Topmost="True"
+        ResizeMode="CanResizeWithGrip"
+        Title="Blur Region" Height="300" Width="300">
+    <Window.ContextMenu>
+        <ContextMenu>
+
+            <MenuItem Header="Open new Window" Click="OpenNewWindow" />
+            <Separator />
+            <MenuItem Header="Close" Click="CloseWindow" />
+            <MenuItem Header="venipa.net" IsEnabled="False" />
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Border BorderBrush="#0fffffff" BorderThickness="1">
+        <Grid>
+
+        </Grid>
+    </Border>
+</Window>
